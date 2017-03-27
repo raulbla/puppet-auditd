@@ -314,13 +314,13 @@ Default: `4`
 
 #### `flush`
 
-Valid values are none, incremental, data, and sync. If set to none, no special effort is made to flush the audit records to disk. If set to incremental, Then the freq parameter is used to determine how often an explicit flush to disk is issued. The data parameter tells the audit daemon to keep the data portion of the disk file sync'd at all times. The sync option tells the audit daemon to keep both the data and meta-data fully sync'd with every write to disk.
+Valid values are none, incremental, incremental_async, data, and sync.  If set to none, no special effort is made to flush the audit records to disk. If set to incremental, Then the freq parameter is used to determine how often an explicit flush to disk is issued.  The incremental_async parameter is very much like incremental except the flushing is done asynchronously for higher performance. The data parameter tells the audit daemon to keep the data portion of the disk file sync'd at all times. The sync option tells the audit daemon to keep both the data and meta-data fully sync'd with every write to disk. 
 
 Default: `incremental`
 
 #### `freq`
 
-This is a non-negative number that tells the audit damon how many records to write before issuing an explicit flush to disk command. this value is only valid when the flush keyword is set to incremental.
+This is a non-negative number that tells the audit damon how many records to write before issuing an explicit flush to disk command. this value is only valid when the flush keyword is set to incremental or incremental_async.
 
 Default: `20`
 
